@@ -12,7 +12,7 @@
             <li><a href="#">Worldbank Programming Challenge</a></li>
         </ul>
         <ul class="nav flexContainer flexEnd">
-            <li><a href="#">Ken Payson GitHub</a></li>
+            <li><a href="https://github.com/kpayson/WorldBankTest" target="_blank">Ken Payson GitHub</a></li>
             <!-- <li><a href="#">Products</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Careers</a></li>
@@ -23,13 +23,15 @@
         <main class="flexItem whiteBackground main">
             <div class="map" leaflet 
               [leafletOptions]="options"
+              [leafletFitBounds]="fitBounds"
 
-              [leafletZoom]="zoom"
-              [leafletCenter]="center"
-              [leafletFitBounds]="fitBounds" 
 
               [leafletLayersControl]="layersControl" 
               (leafletMapReady)="onMapReady($event)"></div>
+
+              <!-- [leafletZoom]="zoom"
+              [leafletCenter]="center"
+              [leafletFitBounds]="fitBounds"  -->
 
 
         </main>

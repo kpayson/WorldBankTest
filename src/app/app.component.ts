@@ -14,6 +14,7 @@ export class AppComponent {
     constructor(private countryDataService: CountryDataService) { }
     countries: any[];
     map: Map;
+    fitBounds:any;
 
     ngOnInit() {
       // Retrieve posts from the API
@@ -35,11 +36,12 @@ export class AppComponent {
           console.log(gis);
           var pgon = polyline(gis.features[0].geometry.rings);
 
-          this.map.fitBounds(pgon.getBounds(), {
-            padding: point(0, 0),
-            maxZoom: 6,
-            animate: true
-          });
+          this.fitBounds = pgon.getBounds();
+          // this.map.fitBounds(pgon.getBounds(), {
+          //   padding: point(0, 0),
+          //   maxZoom: 6,
+          //   animate: true
+          // });
 
           
         })
