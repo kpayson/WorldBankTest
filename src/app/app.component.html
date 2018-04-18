@@ -21,21 +21,28 @@
     </nav>
     <div class="flexContainer flexItem">
         <main class="flexItem whiteBackground main">
-            <div class="map" leaflet [leafletOptions]="options" [leafletLayersControl]="layersControl" (leafletMapReady)="onMapReady($event)"></div>
+            <div class="map" leaflet 
+              [leafletOptions]="options"
+
+              [leafletZoom]="zoom"
+              [leafletCenter]="center"
+              [leafletFitBounds]="fitBounds" 
+
+              [leafletLayersControl]="layersControl" 
+              (leafletMapReady)="onMapReady($event)"></div>
+
+
         </main>
         <aside class="sidebar sidebarLeft">
             Countries: 
+            <!-- <select (change)="countrySelect($event.target.value)">
+              <option *ngFor="let country of countries" value="{{country.alpha3}}">{{country.name}}</option>
+            </select> -->
             <select (change)="countrySelect($event.target.value)">
-                <option>USA</option>
-                <option>Canada</option>
-                <option>France</option>
-                <option>Germany</option>
-            </select>
+                <option *ngFor="let country of countries" value="{{country.code}}">{{country.name}}</option>
+              </select>
         </aside>
-        <!-- <aside class="sidebar sidebarRight">
-            <h2>Right Sidebar</h2>
-            <p>Put your content here</p>
-        </aside> -->
+
     </div>
 
 </div>
